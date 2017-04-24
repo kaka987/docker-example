@@ -1,5 +1,5 @@
 #!/bin/bash
-version=`cat VERSION`
+version=`cat script/VERSION`
 
 sudo docker build -t="192.168.100.99:5000/php7:${version}" php
 sleep 2
