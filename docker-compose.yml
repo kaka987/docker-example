@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    build: ./php
+    ports:
+     - "5000:5000"
+    volumes:
+     - ./php:/code
+  mysql:
+    image: "mysql:5.7"
+    expose:
+      - "3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=mysitedb
+      - MYSQL_ROOT_PASSWORD=1234.com
