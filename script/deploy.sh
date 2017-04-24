@@ -8,6 +8,16 @@ curl -u "${CATTLE_ACCESS_KEY}:${CATTLE_SECRET_KEY}" \
 	-X POST \
 	-H 'Accept: application/json' \
 	-H 'Content-Type: application/json' \
-	-d '{"inServiceStrategy":{"launchConfig":{"imageUuid":"docker:${docker_image}"}}, "toServiceStrategy":null}' \
-	'http://192.168.100.100:8080/v2-beta/projects/1a5/services/1s38/?action=upgrade'
+	-d '{}' \
+	'http://192.168.100.100:8080/v2-beta/projects/1a5/services/1s39/?action=finishupgrade'
+
+echo 
+echo '---------------------------------'
+
+curl -u "${CATTLE_ACCESS_KEY}:${CATTLE_SECRET_KEY}" \
+	-X POST \
+	-H 'Accept: application/json' \
+	-H 'Content-Type: application/json' \
+	-d '{"inServiceStrategy":{"launchConfig":{"imageUuid":"docker:'${docker_image}'"}}, "toServiceStrategy":null}' \
+	'http://192.168.100.100:8080/v2-beta/projects/1a5/services/1s39/?action=upgrade'
 echo 'deploy ok'
